@@ -1,0 +1,21 @@
+Crear base de datos:
+1. Conectarse al motor de DB como root: mysql -u root -p (ingresar contraseña que se definió en la instalación)
+
+Crear usuario para la base de datos:
+2. GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password';
+3. Salir de mysql como root, tipeando \q
+
+Ingresar nuevamente con el usuario y contraseña definido en el paso 2
+4. mysql -u username -p
+5. Solicitará la contraseña definida para ese usuario en paso 2
+
+Crear Base de Datos
+6. CREATE DATABASE dbname;
+7. Salir con \q
+
+=============================================================================================================
+Datos de conexion para Proyecto Parking
+
+DB_DATABASE=dbpavesur
+DB_USERNAME=pavesur
+DB_PASSWORD=pavesur
