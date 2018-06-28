@@ -12,14 +12,14 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->truncate();
-        
+
         DB::table('users')->insert([
         	'name' => 'Pablo',
         	'celular' => 2215429960,
         	'email' => null,
         	'password' => bcrypt ('1234'),
         	'saldo' => 0,
-            'remember_token' => str_random(10),
+          'remember_token' => str_random(10),
 		]);
 
 		DB::table('users')->insert([
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         	'email' => null,
         	'password' => bcrypt ('1234'),
         	'saldo' => 0,
-            'remember_token' => str_random(10),
+          'remember_token' => str_random(10),
 		]);
 
 		DB::table('users')->insert([
@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
         	'email' => null,
         	'password' => bcrypt ('1234'),
         	'saldo' => 0,
-            'remember_token' => str_random(10),
+          'remember_token' => str_random(10),
 		]);
 
 		DB::table('users')->insert([
@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
         	'email' => null,
         	'password' => bcrypt ('1234'),
         	'saldo' => 0,
-            'remember_token' => str_random(10),
+          'remember_token' => str_random(10),
 		]);
     }
 }
