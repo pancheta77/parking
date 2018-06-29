@@ -2,4 +2,5 @@
 
 @section('content')
   <h1>dashboard</h1>
+  Celular: {{ auth()->user()->celular }}
 @stop
