@@ -11,25 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PagesController@index');
 
-Route::get('home', function(){
-  return view('admin.dashboard');
-});
-
-
-
-
-// Route::group([
-// 	'prefix' => 'admin',
-// 	'namespace' => 'Admin',
-// 	'middleware' => 'auth'],
-// 	function(){
-// 		//Rutas de administración
-// 		Route::get('/', 'AdminController@index')->name('dashboard');
-// 	});
+Route::group([
+	'prefix' => 'admin',
+	'namespace' => 'Admin',
+  'middleware' => 'auth'],
+	function(){
+		//Rutas de administración
+    Route::get('/', 'AdminController@index');
+		Route::get('estacionamientos', 'ParkingController@index')->name('admin.parkings.index');
+	});
 
 // Authentication Routes...
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

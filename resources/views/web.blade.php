@@ -65,9 +65,9 @@
 <section id="services" class="services service-section">
   <div class="container">
   <div class="section-header">
-                <h2 class="wow fadeInDown animated">Servicio de Estacionamiento</h2>
-                <p class="wow fadeInDown animated">El sistema muestra los estacionamiento activos en tiempo real</p>
-            </div>
+    <h2 class="wow fadeInDown animated">Servicio de Estacionamiento</h2>
+    <p class="wow fadeInDown animated">El sistema muestra los estacionamiento activos en tiempo real</p>
+  </div>
     <div class="row">
       <div class="card">
         <div class="card-header">
@@ -159,8 +159,8 @@
         <div class="person"><img src="images/usuario-sin-foto.png" alt="" class="img-responsive">
           <div class="person-content">
             <h4>Marcelo Vanucci</h4>
-            <h5 class="role">Desarrollador Web</h5>
-            <p>Estudiante y desarrollador Web</p>
+            <h5 class="role">Estudiante</h5>
+            <p>Diseño de Sistemas</p>
           </div>
           <!-- <ul class="social-icons clearfix">
             <li><a href="#"><span class="fa fa-facebook"></span></a></li>
@@ -173,8 +173,8 @@
         <div class="person"> <img src="images/usuario-sin-foto.png" alt="" class="img-responsive">
           <div class="person-content">
             <h4>Diego Taboada</h4>
-            <h5 class="role">Desarrollador Web</h5>
-            <p>Estudiante y desarrollador Web</p>
+            <h5 class="role">Estudiante</h5>
+            <p>Diseño de Sistemas</p>
           </div>
           <!-- <ul class="social-icons clearfix">
             <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
@@ -187,8 +187,8 @@
         <div class="person"> <img src="images/usuario-sin-foto.png" alt="" class="img-responsive">
           <div class="person-content">
             <h4>Javier Gimenez</h4>
-            <h5 class="role">Desarrollador Web</h5>
-            <p>Estudiante y desarrollador Web</p>
+            <h5 class="role">Estudiante</h5>
+            <p>Diseño de Sistemas</p>
           </div>
           <!-- <ul class="social-icons clearfix">
             <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
@@ -201,8 +201,8 @@
         <div class="person"> <img src="images/usuario-sin-foto.png" alt="" class="img-responsive">
           <div class="person-content">
             <h4>Pablo Ancheta</h4>
-            <h5 class="role">Desarrollador Web</h5>
-            <p>Estudiante y desarrollador Web</p>
+            <h5 class="role">Estudiante</h5>
+            <p>Diseño de Sistemas</p>
           </div>
           <!-- <ul class="social-icons clearfix">
             <li><a href="#" class=""><span class="fa fa-facebook"></span></a></li>
