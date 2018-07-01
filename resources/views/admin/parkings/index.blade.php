@@ -32,9 +32,9 @@
                 <tr>
                   <th>Dominio</th>
                   <th>Hora Inicio</th>
-                  <th>Hora Final</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th>Hora Finalización</th>
+                  <th>Zona</th>
+                  <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
