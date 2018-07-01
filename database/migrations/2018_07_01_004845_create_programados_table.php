@@ -15,8 +15,8 @@ class CreateProgramadosTable extends Migration
     {
         Schema::create('programados', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps('horaDesde');
-            $table->timestamps('horaHasta');
+            $table->timestamp('horaDesde');
+            $table->timestamp('horaHasta')->nullable();
             $table->timestamps();
         });
     }
