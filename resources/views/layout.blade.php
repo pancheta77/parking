@@ -22,6 +22,8 @@
 <link rel="stylesheet" type="text/css" href="css/style4.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+<!-- DataTables -->
+  <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap4.css">
 </head>
 
 <body>
@@ -52,9 +54,7 @@
   </footer>
   <!-- Footer section -->
 
-  <!-- DataTables -->
-  <script src="plugins/datatables/jquery.dataTables.js"></script>
-  <script src="plugins/datatables/dataTables.bootstrap4.js"></script>
+
   <!-- JS FILES -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -64,16 +64,20 @@
   <script src="js/modernizr.js"></script>
   <script src="js/main.js"></script>
   <script type="text/javascript" src="js/jquery.contact.js"></script>
+  <!-- DataTables -->
+  <script src="/plugins/datatables/jquery.dataTables.js"></script>
+  <script src="/plugins/datatables/dataTables.bootstrap4.js"></script>
   <!-- page script -->
   <script>
     $(function () {
-      $('#parkings-active').DataTable({
+      $('#parking-active').DataTable({
         "paging": true,
         "lengthChange": false,
-        "searching": false,
+        "searching": true,
         "ordering": true,
         "info": true,
-        "autoWidth": false
+        "autoWidth": false,
+        "language": {"url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"}
       });
     });
   </script>

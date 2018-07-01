@@ -71,7 +71,7 @@
     <div class="row">
       <div class="card">
         <div class="card-body">
-          <table id="parkings-active" class="table table-bordered table-striped">
+          <table id="parking-active" class="table table-bordered table-striped">
             <thead>
             <tr>
               <th>Dominio</th>
@@ -81,23 +81,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>Internet
-                Explorer 4.0
-              </td>
-              <td>Win 95+</td>
-              <td> 4</td>
-              <td>X</td>
-            </tr>
-            <tr>
-              <td>Internet
-                Explorer 5.0
-              </td>
-              <td>Win 95+</td>
-              <td>5</td>
-              <td>C</td>
-            </tr>
-
+              @foreach ($autos as $auto)
+                <tr>
+                  <td>{{ $auto->dominio  }}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

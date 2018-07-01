@@ -39,19 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </li> --}}
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    <!-- Right navbar links -->
+      <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
 
@@ -156,7 +144,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       "searching": true,
       "ordering": true,
       "info": true,
-      "autoWidth": false
+      "autoWidth": false,
+      "language": {"url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"}
     });
   });
 </script>
