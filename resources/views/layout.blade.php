@@ -67,8 +67,7 @@
   <!-- page script -->
   <script>
     $(function () {
-      $("#example1").DataTable();
-      $('#example2').DataTable({
+      $('#parkings-active').DataTable({
         "paging": true,
         "lengthChange": false,
         "searching": false,

@@ -19,7 +19,7 @@ Route::group([
   'middleware' => 'auth'],
 	function(){
 		//Rutas de administración
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'AdminController@index')->name('dashboard');
 		Route::get('estacionamientos', 'ParkingController@index')->name('admin.parkings.index');
 	});
 

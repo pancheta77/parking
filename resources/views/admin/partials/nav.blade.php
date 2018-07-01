@@ -12,21 +12,21 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{ route('admin.parkings.index') }}" class="nav-link active">
+          <a href="{{ route('admin.parkings.index') }}" class="nav-link {{ request()->is('admin/estacionamientos') ? 'active' : '' }}">
             <i class="fa fa-car nav-icon"></i>
             <p>Listar Estacionamientos</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="#" class="nav-link {{ request()->is('admin/inspectores') ? 'active' : '' }}">
             <i class="fa fa-users nav-icon"></i>
             <p>Listar Inspectores</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="fa fa-store nav-icon"></i>
-            <p>Listar Puntos Ventas</p>
+          <a href="#" class="nav-link {{ request()->is('admin/puntosventas') ? 'active' : '' }}">
+            <i class="fa fa-bars nav-icon"></i>
+            <p>Listar Puntos de Ventas</p>
           </a>
         </li>
       </ul>
