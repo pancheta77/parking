@@ -80,7 +80,7 @@
               <th>Zona</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody> <!--//TODO: completar vista frontend estacionamiento -->
               @foreach ($autos as $auto)
                 <tr>
                   <td>{{ $auto->dominio  }}</td>

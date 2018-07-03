@@ -37,6 +37,7 @@
           <li><a href="#services">Estacionamiento</a></li>
           <li><a href="#content-3-10">Acerca de</a></li>
           <li><a href="#teams">Nuestro equipo</a></li>
+          <li><a href="{{ route('login') }}">Ingresar</a></li>
         </ul>
       </nav>
       <a href="#" class="nav-toggle">Menu<span></span></a> </div>
@@ -44,7 +45,7 @@
   <!-- banner text -->
 
   <!-- Contenido  -->
-@yield('content')
+  @yield('content')
 
 <!-- Footer section -->
   <footer class="footer">

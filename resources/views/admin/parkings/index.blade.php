@@ -37,7 +37,7 @@
                   <th>Acciones</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody> <!--//TODO: completar vista backend estacionamiento-->
                   @foreach ($autos as $auto)
                     <tr>
                       <td>{{ $auto->dominio }}</td>
