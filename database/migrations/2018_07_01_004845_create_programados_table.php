@@ -17,6 +17,8 @@ class CreateProgramadosTable extends Migration
             $table->increments('id');
             $table->timestamp('horaDesde');
             $table->timestamp('horaHasta')->nullable();
+            $table->unsignedInteger('vehiculo_id');
+            $table->unsignedInteger('zona_id');
             $table->timestamps();
         });
     }

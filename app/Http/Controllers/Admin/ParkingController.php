@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class ParkingController extends Controller
 {
     public function index (){
-      $autos = \App\Vehiculo::all();
-      return view('admin.parkings.index', compact('autos'));
+      $estacionamientos = \App\Programado::all();
+      return view('admin.parkings.index', compact('estacionamientos'));
     }
 }

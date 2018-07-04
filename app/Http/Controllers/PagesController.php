@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
-      $autos = \App\Vehiculo::all();
-      return view('web', compact('autos'));
+      $estacionamientos = \App\Programado::all();
+      return view('web', compact('estacionamientos'));
     }
 }

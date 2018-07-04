@@ -80,13 +80,13 @@
               <th>Zona</th>
             </tr>
             </thead>
-            <tbody> <!--//TODO: completar vista frontend estacionamiento -->
-              @foreach ($autos as $auto)
+            <tbody> 
+              @foreach ($estacionamientos as $estacionamiento)
                 <tr>
-                  <td>{{ $auto->dominio  }}</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ $estacionamiento->vehiculo->dominio }}</td>
+                  <td>{{ $estacionamiento->horaDesde->format('H:i:s') }}</td>
+                  <td>{{ $estacionamiento->horaHasta ->format('H:i:s')}}</td>
+                  <td>{{ $estacionamiento->zona->nombre }}</td>
                 </tr>
               @endforeach
             </tbody>

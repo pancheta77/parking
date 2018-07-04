@@ -22,7 +22,7 @@
      <div class="col-lg-12">
        <div class="card card-primary card-outline">
          <div class="card-header">
-           <a href="#" class="btn btn-primary">Iniciar estacionamiento</a>
+           <a href="#" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Iniciar estacionamiento</a>
          </div>
          <div class="card-body">
            <div class="card">
@@ -37,13 +37,13 @@
                   <th>Acciones</th>
                 </tr>
                 </thead>
-                <tbody> <!--//TODO: completar vista backend estacionamiento-->
-                  @foreach ($autos as $auto)
+                <tbody> 
+                  @foreach ($estacionamientos as $estacionamiento)
                     <tr>
-                      <td>{{ $auto->dominio }}</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ $estacionamiento->vehiculo->dominio }}</td>
+                      <td>{{ $estacionamiento->horaDesde->format('H:i:s') }}</td>
+                      <td>{{ $estacionamiento->horaHasta->format('H:i:s') }}</td>
+                      <td>{{ $estacionamiento->zona->nombre }}</td>
                       <td><a href="#" class="btn btn-danger btn.xs"><i class="fa fa-trash"></i></a></td>
                     </tr>
                   @endforeach

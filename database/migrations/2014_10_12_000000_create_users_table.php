@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('celular');
             $table->string('email')->unique()->nullable();
             $table->string('password');
-            $table->float('saldo', 3, 2);
+            $table->float('saldo', 4, 2);
             $table->rememberToken();
             $table->timestamps();
         });

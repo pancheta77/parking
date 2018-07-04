@@ -107,8 +107,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Control sidebar content goes here -->
     <div class="p-3">
       <h5>Configuraciones</h5>
-      <p>Listar zonas</p>
-      <p>Listar tarifas</p>
+      <p><a href="#"><i class="fa fa-bars"></i> Listar zonas</a></p>
+      <p><a href="#"><i class="fa fa-bars"></i> Listar tarifas</a></p>
     </div>
   </aside>
   <!-- /.control-sidebar -->
