@@ -34,16 +34,24 @@
                   <th>Hora Inicio</th>
                   <th>Hora Finalización</th>
                   <th>Zona</th>
+                  <th>Origen</th>
+                  <th>Estado</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
-                <tbody> 
+                <tbody>
                   @foreach ($estacionamientos as $estacionamiento)
                     <tr>
                       <td>{{ $estacionamiento->vehiculo->dominio }}</td>
                       <td>{{ $estacionamiento->horaDesde->format('H:i:s') }}</td>
-                      <td>{{ $estacionamiento->horaHasta->format('H:i:s') }}</td>
+                      @if ( $estacionamiento->horaHasta <> null )
+                        <td>{{ $estacionamiento->horaHasta->format('H:i:s') }}</td>
+                      @else
+                        <td> - </td>
+                      @endif
                       <td>{{ $estacionamiento->zona->nombre }}</td>
+                      <td>{{ $estacionamiento->origen->nombre }}</td>
+                      <td>{{ $estacionamiento->estado }}</td>
                       <td><a href="#" class="btn btn-danger btn.xs"><i class="fa fa-trash"></i></a></td>
                     </tr>
                   @endforeach

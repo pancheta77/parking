@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProgramadosTable extends Migration
+class CreateEstacionamientosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateProgramadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('programados', function (Blueprint $table) {
+        Schema::create('estacionamientos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamp('horaDesde');
             $table->timestamp('horaHasta')->nullable();
-            $table->unsignedInteger('vehiculo_id');
-            $table->unsignedInteger('zona_id');
+            $table->unsignedInteger('vehiculoId');
+            $table->unsignedInteger('zonaId');
+            $table->float('monto', 4, 2);
+            $table->unsignedInteger('origenId');
+            $table->enum('estado', ['Activo', 'Finalizado'])->default('Activo');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateProgramadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programados');
+        Schema::dropIfExists('estacionamientos');
     }
 }

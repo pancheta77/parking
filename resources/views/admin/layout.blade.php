@@ -50,9 +50,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="{{ route('logout') }}">
-          <i class="fa fa-sign-out"></i>
-        </a>
+
       </li>
     </ul>
   </nav>
@@ -109,6 +107,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <h5>Configuraciones</h5>
       <p><a href="#"><i class="fa fa-bars"></i> Listar zonas</a></p>
       <p><a href="#"><i class="fa fa-bars"></i> Listar tarifas</a></p>
+      <div class="dropdown-divider"></div>
+      <form method="POST" action="{{ route('logout') }}">
+        {{ csrf_field() }}
+        <button class="btn btn-default btn-flat btn-block"><i class="fa fa-sign-out"> Cerrar Sesión</i></button>
+      </form>
+
     </div>
   </aside>
   <!-- /.control-sidebar -->

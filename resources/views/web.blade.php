@@ -75,18 +75,14 @@
             <thead>
             <tr>
               <th>Dominio</th>
-              <th>Hora Inicio</th>
-              <th>Hora Finalización</th>
-              <th>Zona</th>
+              <th>Estado</th>
             </tr>
             </thead>
-            <tbody> 
+            <tbody>
               @foreach ($estacionamientos as $estacionamiento)
                 <tr>
                   <td>{{ $estacionamiento->vehiculo->dominio }}</td>
-                  <td>{{ $estacionamiento->horaDesde->format('H:i:s') }}</td>
-                  <td>{{ $estacionamiento->horaHasta ->format('H:i:s')}}</td>
-                  <td>{{ $estacionamiento->zona->nombre }}</td>
+                  <td>{{ $estacionamiento->estado }}</td>
                 </tr>
               @endforeach
             </tbody>
