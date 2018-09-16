@@ -22,7 +22,15 @@
      <div class="col-lg-12">
        <div class="card card-primary card-outline">
          <div class="card-header">
-           <a href="#" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Iniciar estacionamiento</a>
+           <div class="col-md-12">
+              <a href="{{ route('admin.parkings.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Iniciar estacionamiento</a>
+              <form method="POST" action="{{ route('admin.parkings.destroy') }}" style="display: inline">
+                {{ csrf_field() }} {{ method_field('DELETE') }}
+                <button onclick="return confirm ('Esta a punto de borrar todos los estacionamientos. ¿Está seguro?')" class="btn btn-warning pull-left"><i class="fa fa-exclamation-triangle"></i> Finalizar horacio</button>
+              </form>
+           </div>
+
+
          </div>
          <div class="card-body">
            <div class="card">
@@ -33,6 +41,7 @@
                   <th>Dominio</th>
                   <th>Hora Inicio</th>
                   <th>Hora Finalización</th>
+                  <th>Monto $</th>
                   <th>Zona</th>
                   <th>Origen</th>
                   <th>Estado</th>
@@ -44,15 +53,24 @@
                     <tr>
                       <td>{{ $estacionamiento->vehiculo->dominio }}</td>
                       <td>{{ $estacionamiento->horaDesde->format('H:i:s') }}</td>
-                      @if ( $estacionamiento->horaHasta <> null )
+                      @if ( $estacionamiento->horaHasta != null )
                         <td>{{ $estacionamiento->horaHasta->format('H:i:s') }}</td>
                       @else
                         <td> - </td>
                       @endif
+                      @if ( $estacionamiento->monto != 0 )
+                        <td>{{ $estacionamiento->monto }}</td>
+                      @else
+                        <td>-</td>
+                      @endif
                       <td>{{ $estacionamiento->zona->nombre }}</td>
                       <td>{{ $estacionamiento->origen->nombre }}</td>
                       <td>{{ $estacionamiento->estado }}</td>
-                      <td><a href="#" class="btn btn-danger btn.xs"><i class="fa fa-trash"></i></a></td>
+                      <td>
+                        @if ($estacionamiento->estado != 'Finalizado')
+                          <a href="{{ route('admin.parkings.finish', $estacionamiento) }}" onclick="return confirm ('¿Desea finalizar el estacionamiento?')" class="btn btn-danger btn.xs"><i class="fa fa-times"></i></a>
+                        @endif
+                      </td>
                     </tr>
                   @endforeach
                 </tbody>

@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
         	'name' => 'Pablo Ancheta',
         	'celular' => 2215429960,
-        	'email' => 'pabloancheta@pavesur.com',
+        	'email' => 'pablo@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
           'remember_token' => str_random(10),
@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
 		DB::table('users')->insert([
         	'name' => 'Javier Gimenez',
         	'celular' => 2214951946,
-        	'email' => 'gimenezcj@pavesur.com',
+        	'email' => 'javier@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
           'remember_token' => str_random(10),
@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
 		DB::table('users')->insert([
         	'name' => 'Diego Taboada',
         	'celular' => 1159803008,
-        	'email' => 'dltaboadat@pavesur.com',
+        	'email' => 'diego@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
           'remember_token' => str_random(10),
@@ -43,10 +43,28 @@ class UsersTableSeeder extends Seeder
 		DB::table('users')->insert([
         	'name' => 'Marcelo Vanucci',
         	'celular' => 2214593156,
-        	'email' => 'marcelovannucci@pavesur.com',
+        	'email' => 'marcelo@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
           'remember_token' => str_random(10),
 		]);
+
+    DB::table('users')->insert([
+          'name' => 'Vendedor',
+          'celular' => 2219998888,
+          'email' => 'vendedor@pavesur.com',
+          'password' => bcrypt ('1234'),
+          'saldo' => 2000.00,
+          'remember_token' => str_random(10),
+    ]);
+
+    DB::table('users')->insert([
+          'name' => 'usuario',
+          'celular' => 2212223344,
+          'email' => 'usuario@pavesur.com',
+          'password' => bcrypt ('1234'),
+          'saldo' => 200.00,
+          'remember_token' => str_random(10),
+    ]);
     }
 }

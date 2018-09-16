@@ -94,6 +94,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
+      @if (session()->has('flash'))
+        <div class="alert alert-success">{{ session('flash') }}</div>
+      @endif
+      @if (session()->has('flash-warn'))
+        <div class="alert alert-warning">{{ session('flash-warn') }}</div>
+      @endif
       @yield('content')
     </div>
     <!-- /.content -->
@@ -149,6 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       "ordering": true,
       "info": true,
       "autoWidth": false,
+      "order": [[1, "desc" ]],
       "language": {"url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"}
     });
   });

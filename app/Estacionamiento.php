@@ -8,6 +8,8 @@ class Estacionamiento extends Model
 {
   protected $dates = ['horaDesde', 'horaHasta'];
 
+  protected $guarded = [];
+  
   public function vehiculo(){
     return $this->belongsTo(Vehiculo::class, 'vehiculoId');
   }

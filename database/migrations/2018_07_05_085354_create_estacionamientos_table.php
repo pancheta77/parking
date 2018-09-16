@@ -18,8 +18,9 @@ class CreateEstacionamientosTable extends Migration
             $table->timestamp('horaDesde');
             $table->timestamp('horaHasta')->nullable();
             $table->unsignedInteger('vehiculoId');
+            $table->foreign('vehiculoId')->references('id')->on('vehiculos')->onDelete('cascade');
             $table->unsignedInteger('zonaId');
-            $table->float('monto', 4, 2);
+            $table->float('monto', 6, 2);
             $table->unsignedInteger('origenId');
             $table->enum('estado', ['Activo', 'Finalizado'])->default('Activo');
             $table->timestamps();

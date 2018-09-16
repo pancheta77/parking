@@ -21,6 +21,10 @@ Route::group([
 		//Rutas de administración
     Route::get('/', 'AdminController@index')->name('dashboard');
 		Route::get('estacionamientos', 'ParkingController@index')->name('admin.parkings.index');
+		Route::get('estacionamientos/create', 'ParkingController@create')->name('admin.parkings.create');
+		Route::post('estacionamientos', 'ParkingController@store')->name('admin.parkings.store');
+		Route::get('estacionamientos/{estacionamiento}', 'ParkingController@finish')->name('admin.parkings.finish');
+		Route::delete('estacionamientos', 'ParkingController@destroy')->name('admin.parkings.destroy');
 	});
 
 // Authentication Routes...
