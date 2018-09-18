@@ -62,11 +62,9 @@ class ParkingController extends Controller
 
     public function finish (Estacionamiento $estacionamiento) {
       $horaFin = Carbon::now();
-      $horaInicio = $estacionamiento->horaDesde;
       $diffHoraria = $horaFin->diffInSeconds($estacionamiento->horaDesde);
       $diffHoraria = (($diffHoraria / 60) / 60); //tiempo calculo en horas
       $tiempoHoraEntera = floor($diffHoraria); //hora parte entera
-      $estacionamiento->horaDesde = $horaInicio;
       $estacionamiento->horaHasta = $horaFin;
       if ($tiempoHoraEntera == 0) {
         $estacionamiento->monto = ($estacionamiento->zona->tarifa->valor_base); //menos de una hora
@@ -75,11 +73,11 @@ class ParkingController extends Controller
         $estacionamiento->monto = (($estacionamiento->zona->tarifa->valor_base * $tiempoHoraEntera) * (($estacionamiento->zona->tarifa->tasa / 100) + 1));
       }
       $estacionamiento->estado = 'Finalizado';
+      // dd($estacionamiento);
 
       $usuario = User::find($estacionamiento->vehiculo->userId);
       $usuario->saldo = $usuario->saldo - $estacionamiento->monto;
       $usuario->save();
-      // dd($estacionamiento);
       $estacionamiento->save();
 
       return redirect()->route('admin.parkings.index')->with('flash', 'El estacionamiento ha sido finalizado');
@@ -88,6 +86,9 @@ class ParkingController extends Controller
     public function destroy(){
       $estacionamientos = Estacionamiento::all();
       foreach ($estacionamientos as $estacionamiento) {
+        if ($estacionamiento->estado == 'Activo') {
+          $this->finish($estacionamiento);
+        }
         $estacionamiento->vehiculo()->delete();
         $estacionamiento->delete();
       }
