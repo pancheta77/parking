@@ -61,7 +61,12 @@ class ParkingController extends Controller
     }
 
     public function finish (Estacionamiento $estacionamiento) {
-      $horaFin = Carbon::now();
+      if ($estacionamiento->horaHasta != null) {
+        $horaFin = $estacionamiento->horaHasta;
+      }
+      else {
+        $horaFin = Carbon::now();
+      }
       $diffHoraria = $horaFin->diffInSeconds($estacionamiento->horaDesde);
       $diffHoraria = (($diffHoraria / 60) / 60); //tiempo calculo en horas
       $tiempoHoraEntera = floor($diffHoraria); //hora parte entera
