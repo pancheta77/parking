@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OrigenTableSeeder::class);
         $this->call(TarifasTableSeeder::class);
         $this->call(ZonasTableSeeder::class);
+        factory ('App\Inspector',10)->create();
     }
 }

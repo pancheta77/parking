@@ -18,13 +18,21 @@ Route::group([
 	'namespace' => 'Admin',
   'middleware' => 'auth'],
 	function(){
-		//Rutas de administración
+		//Rutas de administración - estacionamiento
     Route::get('/', 'AdminController@index')->name('dashboard');
 		Route::get('estacionamientos', 'ParkingController@index')->name('admin.parkings.index');
 		Route::get('estacionamientos/create', 'ParkingController@create')->name('admin.parkings.create');
 		Route::post('estacionamientos', 'ParkingController@store')->name('admin.parkings.store');
 		Route::get('estacionamientos/{estacionamiento}', 'ParkingController@finish')->name('admin.parkings.finish');
 		Route::delete('estacionamientos', 'ParkingController@destroy')->name('admin.parkings.destroy');
+
+		//Rutas de administración - inspectores
+		Route::get('inspectores', 'InspectorController@index')->name('admin.inspectores.index');
+		Route::get('inspectores/create', 'InspectorController@create')->name('admin.inspectores.create');
+		Route::post('inspectores', 'InspectorController@store')->name('admin.inspectores.store');
+		Route::get('inspectores/{inspector}', 'InspectorController@edit')->name('admin.inspectores.edit');
+		Route::put('inspectores/{inspector}', 'InspectorController@update')->name('admin.inspectores.update');
+		Route::delete('inspectores/{inspector}', 'InspectorController@destroy')->name('admin.inspectores.destroy');
 	});
 
 // Authentication Routes...

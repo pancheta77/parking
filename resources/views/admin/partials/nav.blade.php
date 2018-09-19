@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link {{ request()->is('admin/inspectores') ? 'active' : '' }}">
+          <a href="{{ route('admin.inspectores.index') }}" class="nav-link {{ request()->is('admin/inspectores') ? 'active' : '' }}">
             <i class="fa fa-users nav-icon"></i>
             <p>Listar Inspectores</p>
           </a>

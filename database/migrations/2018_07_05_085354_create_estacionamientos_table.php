@@ -22,7 +22,7 @@ class CreateEstacionamientosTable extends Migration
             $table->unsignedInteger('zonaId');
             $table->float('monto', 6, 2);
             $table->unsignedInteger('origenId');
-            $table->enum('estado', ['Activo', 'Finalizado'])->default('Activo');
+            $table->enum('estado', ['Activo', 'Programado', 'Finalizado'])->default('Activo');
             $table->timestamps();
         });
     }
