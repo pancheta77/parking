@@ -33,6 +33,22 @@ Route::group([
 		Route::get('inspectores/{inspector}', 'InspectorController@edit')->name('admin.inspectores.edit');
 		Route::put('inspectores/{inspector}', 'InspectorController@update')->name('admin.inspectores.update');
 		Route::delete('inspectores/{inspector}', 'InspectorController@destroy')->name('admin.inspectores.destroy');
+
+		//Rutas de administración - zonas
+		Route::get('zonas', 'ZonaController@index')->name('admin.zonas.index');
+		Route::get('zonas/create', 'ZonaController@create')->name('admin.zonas.create');
+		Route::post('zonas', 'ZonaController@store')->name('admin.zonas.store');
+		Route::get('zonas/{zona}', 'ZonaController@edit')->name('admin.zonas.edit');
+		Route::put('zonas/{zona}', 'ZonaController@update')->name('admin.zonas.update');
+		Route::delete('zonas/{zona}', 'ZonaController@destroy')->name('admin.zonas.destroy');
+
+		//Rutas de administración - tarifas
+		Route::get('tarifas', 'TarifaController@index')->name('admin.tarifas.index');
+		Route::get('tarifas/create', 'TarifaController@create')->name('admin.tarifas.create');
+		Route::post('tarifas', 'TarifaController@store')->name('admin.tarifas.store');
+		Route::get('tarifas/{tarifa}', 'TarifaController@edit')->name('admin.tarifas.edit');
+		Route::put('tarifas/{tarifa}', 'TarifaController@update')->name('admin.tarifas.update');
+		Route::delete('tarifas/{tarifa}', 'TarifaController@destroy')->name('admin.tarifas.destroy');
 	});
 
 // Authentication Routes...
