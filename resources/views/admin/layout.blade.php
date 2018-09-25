@@ -112,7 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="p-3">
       <h5>Configuraciones</h5>
       <p><a href="{{ route('admin.zonas.index') }}"><i class="fa fa-bars"></i> Listar zonas</a></p>
-      <p><a href="#"><i class="fa fa-bars"></i> Listar tarifas</a></p>
+      <p><a href="{{ route('admin.tarifas.index') }}"><i class="fa fa-bars"></i> Listar tarifas</a></p>
       <div class="dropdown-divider"></div>
       <form method="POST" action="{{ route('logout') }}">
         {{ csrf_field() }}

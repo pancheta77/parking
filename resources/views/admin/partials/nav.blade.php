@@ -24,9 +24,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link {{ request()->is('admin/puntosventas') ? 'active' : '' }}">
+          <a href="#" class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
             <i class="fa fa-bars nav-icon"></i>
-            <p>Listar Puntos de Ventas</p>
+            <p>Listar usuario</p>
           </a>
         </li>
       </ul>

@@ -24,23 +24,23 @@
        <div class="card card-primary card-outline">
          <div class="card-body">
            <div class="card">
-             <form method="POST" action="{{ route('admin.inspectores.store') }}">
+             <form method="POST" action="{{ route('admin.tarifas.store') }}">
                {{ csrf_field() }}
                <div class="card-body">
-                <div class="form-group {{ $errors->has('apellido') ? ' is-invalid' : '' }}">
-                  <label>Apellido</label>
-                  <input name="apellido" value="{{ old('apellido') }}" class="form-control" placeholder="Ingrese el apellido del Inspector">
-                  {!! $errors->first('apellido', '<span class="text-danger">:message</span>') !!}
-                </div>
                 <div class="form-group {{ $errors->has('nombre') ? ' is-invalid' : '' }}">
-                  <label>Nombres</label>
-                  <input name="nombre" value="{{ old('nombre') }}" class="form-control" placeholder="Ingrese nombre completo">
+                  <label>Nombre</label>
+                  <input name="nombre" value="{{ old('nombre') }}" class="form-control" placeholder="Ingrese el nombre descriptivo">
                   {!! $errors->first('nombre', '<span class="text-danger">:message</span>') !!}
                 </div>
-                <div class="form-group {{ $errors->has('legajo') ? ' is-invalid' : '' }}">
-                  <label>Legajo</label>
-                  <input name="legajo" value="{{ old('legajo') }}" class="form-control" placeholder="Ingrese legajo">
-                  {!! $errors->first('legajo', '<span class="text-danger">:message</span>') !!}
+                <div class="form-group {{ $errors->has('valor_base') ? ' is-invalid' : '' }}">
+                  <label>Valor base</label>
+                  <input name="valor_base" value="{{ old('valor_base') }}" class="form-control" placeholder="Ingrese valor base de la tarifa ">
+                  {!! $errors->first('valor_base', '<span class="text-danger">:message</span>') !!}
+                </div>
+                <div class="form-group {{ $errors->has('tasa') ? ' is-invalid' : '' }}">
+                  <label>Tasa de incremento</label>
+                  <input name="tasa" value="{{ old('tasa') }}" class="form-control" placeholder="Ingrese tasa en porcentaje">
+                  {!! $errors->first('tasa', '<span class="text-danger">:message</span>') !!}
                 </div>
 
                 <div class="form-group">
