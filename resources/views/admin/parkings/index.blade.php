@@ -24,13 +24,17 @@
          <div class="card-header">
            <div class="col-md-12">
               <a href="{{ route('admin.parkings.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Iniciar estacionamiento</a>
-              @if ($estacionamientos->isNotEmpty())
-                <form method="POST" action="{{ route('admin.parkings.destroy') }}" style="display: inline">
-                  {{ csrf_field() }} {{ method_field('DELETE') }}
-                  <button onclick="return confirm ('Esta a punto de borrar todos los estacionamientos. ¿Está seguro?')" class="btn btn-warning pull-left"><i class="fa fa-exclamation-triangle"></i> Finalizar horacio</button>
-                </form>
-              @endif
-
+              <div class="btn-group">
+                @if ($estacionamientos->isNotEmpty())
+                  <form method="POST" action="{{ route('admin.parkings.destroy') }}" style="display: inline">
+                    {{ csrf_field() }} {{ method_field('DELETE') }}
+                    <button onclick="return confirm ('Esta a punto de borrar todos los estacionamientos. ¿Está seguro?')" class="btn btn-warning pull-left"><i class="fa fa-exclamation-triangle"></i> Finalizar horacio</button>
+                  </form>
+                @endif
+              </div>
+              <div class="btn-group">
+                <a href="{{ route('admin.parkings.historial') }}" class="btn btn-info"><i class="fa fa-history"></i> Historial estacionamientos</a>
+              </div>
            </div>
 
 

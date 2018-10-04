@@ -25,6 +25,8 @@ Route::group([
 		Route::post('estacionamientos', 'ParkingController@store')->name('admin.parkings.store');
 		Route::get('estacionamientos/{estacionamiento}', 'ParkingController@finish')->name('admin.parkings.finish');
 		Route::delete('estacionamientos', 'ParkingController@destroy')->name('admin.parkings.destroy');
+		Route::get('historial', 'ParkingController@historial')->name('admin.parkings.historial');
+		Route::get('historial/estacionamientosPdf', 'ParkingController@pdf')->name('admin.parkings.pdf');
 
 		//Rutas de administración - inspectores
 		Route::get('inspectores', 'InspectorController@index')->name('admin.inspectores.index');

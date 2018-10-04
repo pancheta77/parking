@@ -10,11 +10,12 @@ use App\Origen;
 use App\Vehiculo;
 use App\User;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ParkingController extends Controller
 {
     public function index (){
-      $estacionamientos = Estacionamiento::orderBy('horaDesde')->get();
+      $estacionamientos = Estacionamiento::where('estado', '=', 'Activo')->orderBy('horaDesde')->get();
       return view('admin.parkings.index', compact('estacionamientos'));
     }
 
@@ -94,11 +95,26 @@ class ParkingController extends Controller
         if ($estacionamiento->estado == 'Activo') {
           $this->finish($estacionamiento);
         }
-        $estacionamiento->vehiculo()->delete();
-        $estacionamiento->delete();
+        // $estacionamiento->vehiculo()->delete();
+        // $estacionamiento->delete();
       }
 
-      return redirect()->route('admin.parkings.index')->with('flash', 'Los estacionamiento de la jornada han sido finalizados y borrados');
+      return redirect()->route('admin.parkings.index')->with('flash', 'Los estacionamiento de la jornada han sido finalizados');
+    }
+
+    public function historial (){
+      $historiales = Estacionamiento::where('estado', '=', 'Finalizado')->get();
+      return view('admin.parkings.historial', compact('historiales'));
+    }
+
+    //TODO
+    public function pdf(){
+      $estacionamientos = Estacionamiento::where('estado', '=', 'Finalizado')->get();
+      $fecha = Carbon::now();
+      return view('admin.pdf.report', compact('estacionamientos', 'fecha'));
+      // $pdf = PDF::loadView('admin.pdf.report', compact('estacionamientos', 'fecha'));
+      // $nombreArchivo = 'Reporte.pdf';
+      // return $pdf->download($nombreArchivo);
     }
 
 }

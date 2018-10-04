@@ -29,6 +29,12 @@
             <p>Listar usuario</p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="{{ route('admin.parkings.historial') }}" class="nav-link {{ request()->is('admin/historial') ? 'active' : '' }}">
+            <i class="fa fa-history nav-icon"></i>
+            <p>Historial</p>
+          </a>
+        </li>
       </ul>
     </li>
 
