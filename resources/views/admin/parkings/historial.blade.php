@@ -26,7 +26,7 @@
              @if ($historiales->isEmpty())
                <a href="#" class="btn btn-outline-danger disabled pull-right"><i class="fa fa-file-pdf-o"></i> Exportar reporte</a>
              @else
-               <a href="{{ route('admin.parkings.pdf') }}" class="btn btn-outline-danger pull-right"><i class="fa fa-file-pdf-o"></i> Exportar reporte</a>
+               <a href="{{ route('admin.parkings.pdf') }}" class="btn btn-outline-danger pull-right"><i class="fa fa-file-pdf-o"></i> Exportar PDF</a>
              @endif
 
            </div>

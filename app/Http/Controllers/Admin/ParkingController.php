@@ -111,10 +111,10 @@ class ParkingController extends Controller
     public function pdf(){
       $estacionamientos = Estacionamiento::where('estado', '=', 'Finalizado')->get();
       $fecha = Carbon::now();
-      return view('admin.pdf.report', compact('estacionamientos', 'fecha'));
-      // $pdf = PDF::loadView('admin.pdf.report', compact('estacionamientos', 'fecha'));
-      // $nombreArchivo = 'Reporte.pdf';
-      // return $pdf->download($nombreArchivo);
+      // return view('admin.pdf.report', compact('estacionamientos', 'fecha'));
+      $pdf = PDF::loadView('admin.pdf.report', compact('estacionamientos', 'fecha'));
+      $nombreArchivo = 'Reporte_'. $fecha->format('H:m:s'). '.pdf';
+      return $pdf->download($nombreArchivo);
     }
 
 }

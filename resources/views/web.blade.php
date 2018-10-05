@@ -62,39 +62,42 @@
 </section>
 <!-- intro section -->
 <!-- services section -->
-<section id="services" class="services service-section">
-  <div class="container">
-  <div class="section-header">
-    <h2 class="wow fadeInDown animated">Servicio de Estacionamiento</h2>
-    <p class="wow fadeInDown animated">El sistema muestra los estacionamiento activos en tiempo real</p>
-  </div>
-    <div class="row">
-      <div class="card">
-        <div class="card-body">
-          <table id="parking-active" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th>Dominio</th>
-              <th>Estado</th>
-            </tr>
-            </thead>
-            <tbody>
-              @foreach ($estacionamientos as $estacionamiento)
-                <tr>
-                  <td>{{ $estacionamiento->vehiculo->dominio }}</td>
-                  <td>{{ $estacionamiento->estado }}</td>
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
-
+@if (auth()->user())
+  <section id="services" class="services service-section">
+    <div class="container">
+    <div class="section-header">
+      <h2 class="wow fadeInDown animated">Servicio de Estacionamiento</h2>
+      <p class="wow fadeInDown animated">El sistema muestra los estacionamiento activos en tiempo real</p>
     </div>
-  </div>
-</section>
-<!-- services section -->
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <table id="parking-active" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Dominio</th>
+                <th>Estado</th>
+              </tr>
+              </thead>
+              <tbody>
+                @foreach ($estacionamientos as $estacionamiento)
+                  <tr>
+                    <td>{{ $estacionamiento->vehiculo->dominio }}</td>
+                    <td>{{ $estacionamiento->estado }}</td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- services section -->
+@endif
+
 <!--About-->
 <section id="content-3-10" class="content-block data-section nopad content-3-10">
 	<div class="image-container col-sm-6 col-xs-12 pull-left">
