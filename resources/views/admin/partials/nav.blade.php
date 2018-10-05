@@ -24,7 +24,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
+          <a href="{{ route('admin.users.index') }}" class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
             <i class="fa fa-bars nav-icon"></i>
             <p>Listar usuario</p>
           </a>

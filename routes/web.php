@@ -51,6 +51,11 @@ Route::group([
 		Route::get('tarifas/{tarifa}', 'TarifaController@edit')->name('admin.tarifas.edit');
 		Route::put('tarifas/{tarifa}', 'TarifaController@update')->name('admin.tarifas.update');
 		Route::delete('tarifas/{tarifa}', 'TarifaController@destroy')->name('admin.tarifas.destroy');
+
+		//Rutas de administración - usuarios
+		Route::get('usuarios', 'UsuarioController@index')->name('admin.users.index');
+		Route::get('usuarios/{usuario}', 'UsuarioController@agregarSaldo')->name('admin.users.agregarSaldo');
+		Route::put('usuarios/{usuario}', 'UsuarioController@update')->name('admin.users.update');
 	});
 
 // Authentication Routes...
