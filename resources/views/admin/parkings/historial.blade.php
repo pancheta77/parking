@@ -24,7 +24,7 @@
          <div class="card-header">
            <div class="col-md-12">
              @if ($historiales->isEmpty())
-               <a href="#" class="btn btn-outline-danger disabled pull-right"><i class="fa fa-file-pdf-o"></i> Exportar reporte</a>
+               <a href="#" class="btn btn-outline-danger disabled pull-right"><i class="fa fa-file-pdf-o"></i> Exportar PDF</a>
              @else
                <a href="{{ route('admin.parkings.pdf') }}" class="btn btn-outline-danger pull-right"><i class="fa fa-file-pdf-o"></i> Exportar PDF</a>
              @endif
@@ -38,6 +38,7 @@
                 <thead>
                 <tr>
                   <th>Dominio</th>
+                  <th>Fecha</th>
                   <th>Hora Inicio</th>
                   <th>Hora Finalización</th>
                   <th>Monto $</th>
@@ -50,6 +51,7 @@
                   @foreach ($historiales as $historial)
                     <tr>
                       <td>{{ $historial->vehiculo->dominio }}</td>
+                      <td>{{ $historial->horaHasta->format('d/m/Y') }}</td>
                       <td>{{ $historial->horaDesde->format('H:i:s') }}</td>
                       <td>{{ $historial->horaHasta->format('H:i:s') }}</td>
                       <td>{{ $historial->monto }}</td>
