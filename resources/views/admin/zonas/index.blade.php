@@ -25,8 +25,6 @@
            <div class="col-md-12">
               <a href="{{ route('admin.zonas.create') }}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Agregar zona</a>
            </div>
-
-
          </div>
          <div class="card-body">
            <div class="card">
@@ -37,7 +35,7 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Tarifa base</th>
-                  <th>Tasa incremento</th>
+                  <th>Tasa incremento [%]</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>

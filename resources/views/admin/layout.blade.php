@@ -50,7 +50,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </li>
 
       <li class="nav-item dropdown">
-
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="fa fa-user-circle"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  {{ auth()->user()->name }}
+                  <span class="float-right text-sm text-danger">
+                </h3>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- logout -->
+            <div class="media">
+              <div class="media-body">
+                <form method="POST" action="{{ route('logout') }}">
+                  {{ csrf_field() }}
+                  <button class="btn btn-default btn-flat btn-block"><i class="fa fa-sign-out"> Cerrar Sesión</i></button>
+                </form>
+              </div>
+            </div>
+            <!-- logout End -->
+          </a>
       </li>
     </ul>
   </nav>
@@ -59,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('dashboard') }}" class="brand-link">
       <img src="/adminlte/dist/img/AdminLTELogo.png" alt="Admin" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">PAVESUR</span>
@@ -111,14 +139,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Control sidebar content goes here -->
     <div class="p-3">
       <h5>Configuraciones</h5>
+      <div class="dropdown-divider"></div>
       <p><a href="{{ route('admin.zonas.index') }}"><i class="fa fa-bars"></i> Listar zonas</a></p>
       <p><a href="{{ route('admin.tarifas.index') }}"><i class="fa fa-bars"></i> Listar tarifas</a></p>
-      <div class="dropdown-divider"></div>
-      <form method="POST" action="{{ route('logout') }}">
-        {{ csrf_field() }}
-        <button class="btn btn-default btn-flat btn-block"><i class="fa fa-sign-out"> Cerrar Sesión</i></button>
-      </form>
-
     </div>
   </aside>
   <!-- /.control-sidebar -->
