@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
         	'name' => 'Pablo Ancheta',
-        	'celular' => 2215429960,
+        	'celular' => 2213334455,
         	'email' => 'pablo@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
 
     		DB::table('users')->insert([
         	'name' => 'Javier Gimenez',
-        	'celular' => 2214951946,
+        	'celular' => 2213334466,
         	'email' => 'javier@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
 
     		DB::table('users')->insert([
         	'name' => 'Diego Taboada',
-        	'celular' => 1159803008,
+        	'celular' => 2213334477,
         	'email' => 'diego@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
@@ -42,7 +42,7 @@ class UsersTableSeeder extends Seeder
 
     		DB::table('users')->insert([
         	'name' => 'Marcelo Vanucci',
-        	'celular' => 2214593156,
+        	'celular' => 2213334498,
         	'email' => 'marcelo@pavesur.com',
         	'password' => bcrypt ('1234'),
         	'saldo' => rand(0, 999)/10,
