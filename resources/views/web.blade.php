@@ -132,7 +132,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="person"><img src="images/usuario-sin-foto.png" alt="" class="img-responsive">
           <div class="person-content">
-            <h4>Marcelo Vanucci</h4>
+            <h4>Marcelo Vannucci</h4>
             <h5 class="role">Estudiante</h5>
             <p>Diseño de Sistemas</p>
           </div>
