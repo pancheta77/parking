@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql_prod'),
+    'default' => env('DB_CONNECTION', 'pg_prod'),
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'pgsql_prod' => [
+        'pg_prod' => array(
             'driver'   => 'pgsql',
             'host'     => $host,
             'database' => $database,
@@ -81,7 +81,7 @@ return [
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
-        ],
+        ),
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
