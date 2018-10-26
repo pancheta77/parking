@@ -38,7 +38,7 @@
                   {!! $errors->first('valor_base', '<span class="text-danger">:message</span>') !!}
                 </div>
                 <div class="form-group {{ $errors->has('tasa') ? ' is-invalid' : '' }}">
-                  <label>Legajo</label>
+                  <label>Tasa de incremento [%]</label>
                   <input name="tasa" value="{{ old('tasa', $tarifa->tasa) }}" class="form-control" placeholder="Ingrese porcentaje de tasa">
                   {!! $errors->first('tasa', '<span class="text-danger">:message</span>') !!}
                 </div>
