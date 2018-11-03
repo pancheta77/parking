@@ -56,6 +56,7 @@ Route::group([
 		Route::get('usuarios', 'UsuarioController@index')->name('admin.users.index');
 		Route::get('usuarios/{usuario}', 'UsuarioController@agregarSaldo')->name('admin.users.agregarSaldo');
 		Route::put('usuarios/{usuario}', 'UsuarioController@update')->name('admin.users.update');
+		Route::get('cuenta/{usuario}', 'UsuarioController@movimientos');
 	});
 
 // Authentication Routes...

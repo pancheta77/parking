@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         	'celular' => 2213334455,
         	'email' => 'pablo@pavesur.com',
         	'password' => bcrypt ('1234'),
-        	'saldo' => rand(0, 999)/10,
+        	'cuentaId' => 1,
           'remember_token' => str_random(10),
 	      ]);
 
@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
         	'celular' => 2213334466,
         	'email' => 'javier@pavesur.com',
         	'password' => bcrypt ('1234'),
-        	'saldo' => rand(0, 999)/10,
+        	'cuentaId' => 2,
           'remember_token' => str_random(10),
     		]);
 
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
         	'celular' => 2213334477,
         	'email' => 'diego@pavesur.com',
         	'password' => bcrypt ('1234'),
-        	'saldo' => rand(0, 999)/10,
+        	'cuentaId' => 3,
           'remember_token' => str_random(10),
     		]);
 
@@ -45,7 +45,7 @@ class UsersTableSeeder extends Seeder
         	'celular' => 2213334498,
         	'email' => 'marcelo@pavesur.com',
         	'password' => bcrypt ('1234'),
-        	'saldo' => rand(0, 999)/10,
+        	'cuentaId' => 4,
           'remember_token' => str_random(10),
     		]);
 
@@ -54,7 +54,7 @@ class UsersTableSeeder extends Seeder
           'celular' => 2219998888,
           'email' => 'vendedor@pavesur.com',
           'password' => bcrypt ('1234'),
-          'saldo' => 2000.00,
+          'cuentaId' => 5,
           'remember_token' => str_random(10),
         ]);
 
@@ -63,7 +63,7 @@ class UsersTableSeeder extends Seeder
           'celular' => 2212223344,
           'email' => 'usuario@pavesur.com',
           'password' => bcrypt ('1234'),
-          'saldo' => 200.00,
+          'cuentaId' => 6,
           'remember_token' => str_random(10),
         ]);
     }

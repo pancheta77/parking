@@ -9,7 +9,11 @@ class Estacionamiento extends Model
   protected $dates = ['horaDesde', 'horaHasta'];
 
   protected $guarded = [];
-  
+
+  // protected  $fillable =  [
+  //   'vehiculoId', 'zonaId', 'monto', 'estado',
+  // ];
+
   public function vehiculo(){
     return $this->belongsTo(Vehiculo::class, 'vehiculoId');
   }

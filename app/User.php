@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'celular', 'email', 'saldo', 'password',
+        'name', 'celular', 'email', 'cuentaId', 'password',
     ];
 
     /**
@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cuenta(){
+      return $this->belongsTo(Cuenta::class, 'cuentaId');
+    }
 }

@@ -36,8 +36,12 @@
                   <input name="email" value="{{ old('email', $usuario->email) }}" class="form-control" readonly>
                 </div>
                 <div class="form-group">
+                  <label>Se acreditará en cuenta Nº</label>
+                  <input name="numero " value="{{ old('numero ', $usuario->cuenta->numero ) }}" class="form-control" readonly>
+                </div>
+                <div class="form-group">
                   <label>Saldo actual</label>
-                  <input name="saldo" value="{{ old('saldo', $usuario->saldo) }}" class="form-control" readonly>
+                  <input name="saldo" value="{{ old('saldo', $usuario->cuenta->saldo) }}" class="form-control" readonly>
                 </div>
                 <div class="form-group {{ $errors->has('monto') ? ' is-invalid' : '' }}">
                   <label>Monto a cargar</label>

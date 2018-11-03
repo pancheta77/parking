@@ -48,7 +48,7 @@
                   <th>Dominio</th>
                   <th>Hora Inicio</th>
                   <th>Hora Finalización</th>
-                  <th>Monto $</th>
+                  {{-- <th>Monto $</th> --}}
                   <th>Zona</th>
                   <th>Origen</th>
                   <th>Estado</th>
@@ -65,11 +65,11 @@
                       @else
                         <td> - </td>
                       @endif
-                      @if ( $estacionamiento->monto != 0 )
+                      {{-- @if ( $estacionamiento->monto != 0 )
                         <td>{{ $estacionamiento->monto }}</td>
                       @else
                         <td>-</td>
-                      @endif
+                      @endif --}}
                       <td>{{ $estacionamiento->zona->nombre }}</td>
                       <td>{{ $estacionamiento->origen->nombre }}</td>
                       <td>{{ $estacionamiento->estado }}</td>

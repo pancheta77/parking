@@ -9,6 +9,7 @@ use App\Zona;
 use App\Origen;
 use App\Vehiculo;
 use App\User;
+use App\Movimiento;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -37,7 +38,7 @@ class ParkingController extends Controller
       ]);
       $usuario = User::find($request->get('userId'));
       $zona = Zona::find($request->get('zonaId'));
-      if ($usuario->saldo >= $zona->tarifa->valor_base) {
+      if ($usuario->cuenta->saldo >= $zona->tarifa->valor_base) {
         $auto = new Vehiculo;
         $auto->dominio = strtoupper($request->get('dominio'));
         $auto->userId = $request->get('userId');
@@ -52,6 +53,7 @@ class ParkingController extends Controller
         $estacionamiento->origenId = $request->get('origenId');
         $estacionamiento->monto = 0;
         $estacionamiento->estado = 'Activo';
+        // dd($estacionamiento);
         $estacionamiento->save();
 
         return redirect()->route('admin.parkings.index')->with('flash', 'El estacionamiento ha sido iniciado correctamente');
@@ -82,8 +84,18 @@ class ParkingController extends Controller
       // dd($estacionamiento);
 
       $usuario = User::find($estacionamiento->vehiculo->userId);
-      $usuario->saldo = $usuario->saldo - $estacionamiento->monto;
-      $usuario->save();
+      $usuario->cuenta->saldo = ($usuario->cuenta->saldo - $estacionamiento->monto);
+      $usuario->cuenta->save();
+
+      //Registrar el movimiento por finalización de estacionamiento
+      $mov = new Movimiento;
+      $mov->cuentaId = $usuario->cuentaId;
+      $mov->fechaOperacion = Carbon::now();
+      $mov->monto = $estacionamiento->monto;
+      $mov->disponible = $usuario->cuenta->saldo;
+      $mov->motivo = 'Debito-Estacionamiento';
+      $mov->save();
+
       $estacionamiento->save();
 
       return redirect()->route('admin.parkings.index')->with('flash', 'El estacionamiento ha sido finalizado');
