@@ -28,6 +28,7 @@
               <table id="parkings-table" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>Número Celular</th>
                   <th>Número Cuenta</th>
                   <th>Fecha de operación</th>
                   <th>Monto $</th>
@@ -38,6 +39,7 @@
                 <tbody>
                   @foreach ($movimientos as $movimiento)
                     <tr>
+                      <td>{{ $movimiento->cuenta->owner->celular }}</td>
                       <td>{{ $movimiento->cuenta->numero }}</td>
                       <td>{{ $movimiento->fechaOperacion->format('d/m/Y H:m:s') }}</td>
                       @if ($movimiento->motivo == 'Credito-Saldo' || $movimiento->motivo == 'CargaInicial')
