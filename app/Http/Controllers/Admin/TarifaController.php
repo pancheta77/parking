@@ -22,8 +22,8 @@ class TarifaController extends Controller
     {
       $this->validate($request, [
         'nombre' => 'required',
-        'valor_base' => 'numeric|required',
-        'tasa' => 'required|integer',
+        'valor_base' => 'integer|min:1|required',
+        'tasa' => 'required|integer|min:0',
       ]);
       Tarifa::create($request->all());
 
@@ -39,8 +39,8 @@ class TarifaController extends Controller
     {
       $this->validate($request, [
         'nombre' => 'required',
-        'valor_base' => 'numeric|required',
-        'tasa' => 'required|integer',
+        'valor_base' => 'integer|min:1|required',
+        'tasa' => 'required|integer|min:0',
       ]);
       $tarifa->fill($request->all());
       $tarifa->save();
