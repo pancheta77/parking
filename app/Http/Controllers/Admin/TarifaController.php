@@ -21,7 +21,7 @@ class TarifaController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        'nombre' => 'required',
+        'nombre' => 'required|unique:tarifas',
         'valor_base' => 'integer|min:1|required',
         'tasa' => 'required|integer|min:0',
       ]);
@@ -38,7 +38,7 @@ class TarifaController extends Controller
     public function update(Request $request, Tarifa $tarifa)
     {
       $this->validate($request, [
-        'nombre' => 'required',
+        'nombre' => 'required|unique:tarifas',
         'valor_base' => 'integer|min:1|required',
         'tasa' => 'required|integer|min:0',
       ]);

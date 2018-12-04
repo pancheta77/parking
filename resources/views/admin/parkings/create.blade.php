@@ -32,7 +32,7 @@
                    <select name="origenId" class="form-control">
                        <option value="">Seleccione un origen</option>
                      @foreach ($origenes as $origen)
-                       <option value="{{ $origen->id }}">{{ $origen->nombre }}</option>
+                       <option value="{{ $origen->id }}" {{ old('origenId') == $origen->id ? 'selected' : ''}}>{{ $origen->nombre }}</option>
                      @endforeach
                    </select>
                    {!! $errors->first('origenId', '<span class="text-danger">:message</span>') !!}
@@ -43,7 +43,7 @@
                      <option value="">Seleccione un Usuario</option>
                      </option>
                      @foreach ($users as $user)
-                       <option value="{{ $user->id }}">{{ $user->name }}</option>
+                       <option value="{{ $user->id }}" {{ old('userId') == $user->id ? 'selected' : ''}}>{{ $user->name }}</option>
                      @endforeach
                    </select>
                    {!! $errors->first('userId', '<span class="text-danger">:message</span>') !!}
@@ -64,7 +64,7 @@
                     <option value="">Seleccione una zona</option>
                     </option>
                     @foreach ($zonas as $zona)
-                      <option value="{{ $zona->id }}">{{ $zona->nombre }}</option>
+                      <option value="{{ $zona->id }}" {{ old('zonaId') == $zona->id ? 'selected' : ''}}>{{ $zona->nombre }}</option>
                     @endforeach
                   </select>
                   {!! $errors->first('zonaId', '<span class="text-danger">:message</span>') !!}

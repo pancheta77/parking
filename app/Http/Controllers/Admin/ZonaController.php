@@ -25,7 +25,7 @@ class ZonaController extends Controller
   public function store(Request $request)
   {
     $this->validate($request, [
-      'nombre' => 'required',
+      'nombre' => 'required|unique:zonas',
       'descripcion' => 'required',
       'tarifaId' => 'required',
     ]);
@@ -43,7 +43,7 @@ class ZonaController extends Controller
   public function update(Request $request, Zona $zona)
   {
     $this->validate($request, [
-      'nombre' => 'required',
+      'nombre' => 'required|unique:zonas',
       'descripcion' => 'required',
       'tarifaId' => 'required',
     ]);

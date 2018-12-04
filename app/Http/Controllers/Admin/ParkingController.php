@@ -32,35 +32,45 @@ class ParkingController extends Controller
       // dd($request);
       $this->validate($request, [
         'dominio' => [new patente],
-        'tiempo' => 'nullable|integer|between:[1,13]',
+        'tiempo' => 'nullable|integer',
         'zonaId' => 'required',
         'userId' => 'required',
         'origenId' => 'required',
       ]);
-      $usuario = User::find($request->get('userId'));
-      $zona = Zona::find($request->get('zonaId'));
-      if ($usuario->cuenta->saldo >= $zona->tarifa->valor_base) {
-        $auto = new Vehiculo;
-        $auto->dominio = strtoupper($request->get('dominio'));
-        $auto->userId = $request->get('userId');
-        $auto->save();
-        //Creación de un estacionamiento nuevo
-        $estacionamiento = new Estacionamiento;
-        $estacionamiento->vehiculoId = $auto->id;
-        $horaActual = Carbon::now();
-        $estacionamiento->horaDesde = $horaActual;
-        $estacionamiento->horaHasta = $request->filled('tiempo') ? $horaActual->addHours($request->get('tiempo')) : null;
-        $estacionamiento->zonaId = $request->get('zonaId');
-        $estacionamiento->origenId = $request->get('origenId');
-        $estacionamiento->monto = 0;
-        $estacionamiento->estado = 'Activo';
-        // dd($estacionamiento);
-        $estacionamiento->save();
+      $auto = new Vehiculo;
+      $auto->dominio = strtoupper($request->get('dominio'));
+      $auto->userId = $request->get('userId');
+      $vehiculosActivos = \DB::table('estacionamientos')
+                            ->join('vehiculos', 'vehiculos.id', '=', 'estacionamientos.vehiculoId')
+                            ->where('estacionamientos.estado', 'Activo')
+                            ->select('vehiculos.dominio')
+                            ->get();
 
-        return redirect()->route('admin.parkings.index')->with('flash', 'El estacionamiento ha sido iniciado correctamente');
-      }
-      else {
-        return redirect()->route('admin.parkings.index')->with('flash-warn', 'El usuario no tiene suficiente saldo');
+      if ($vehiculosActivos->contains('dominio', $auto->dominio)) {
+        return redirect()->route('admin.parkings.index')->with('flash-warn', 'El dominio ingresado posee un estacionamiento activo');
+      } else {
+        $usuario = User::find($request->get('userId'));
+        $zona = Zona::find($request->get('zonaId'));
+        if ($usuario->cuenta->saldo >= $zona->tarifa->valor_base) {
+          $auto->save(); //Se guarda vehiculo ya que no posee estacionamiento activo
+          //Creación de un estacionamiento nuevo
+          $estacionamiento = new Estacionamiento;
+          $estacionamiento->vehiculoId = $auto->id;
+          $horaActual = Carbon::now();
+          $estacionamiento->horaDesde = $horaActual;
+          $estacionamiento->horaHasta = $request->filled('tiempo') ? $horaActual->addHours($request->get('tiempo')) : null;
+          $estacionamiento->zonaId = $request->get('zonaId');
+          $estacionamiento->origenId = $request->get('origenId');
+          $estacionamiento->monto = 0;
+          $estacionamiento->estado = 'Activo';
+          // dd($estacionamiento);
+          $estacionamiento->save();
+
+          return redirect()->route('admin.parkings.index')->with('flash', 'El estacionamiento ha sido iniciado correctamente');
+        }
+        else {
+          return redirect()->route('admin.parkings.index')->with('flash-warn', 'El usuario no tiene suficiente saldo');
+        }
       }
     }
 

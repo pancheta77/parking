@@ -43,7 +43,7 @@
                     <option value="">Seleccione una tarifa</option>
                     </option>
                     @foreach ($tarifas as $tarifa)
-                      <option value="{{ $tarifa->id }}">{{ $tarifa->nombre }} | Valor Hora $ {{ $tarifa->valor_base }} | Tasa: {{$tarifa->tasa}}%</option>
+                      <option value="{{ $tarifa->id }}" {{ old('tarifaId') == $tarifa->id ? 'selected' : '' }}>{{ $tarifa->nombre }} | Valor Hora $ {{ $tarifa->valor_base }} | Tasa: {{$tarifa->tasa}}%</option>
                     @endforeach
                   </select>
                   {!! $errors->first('tarifaId', '<span class="text-danger">:message</span>') !!}

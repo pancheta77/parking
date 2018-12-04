@@ -22,7 +22,7 @@ class InspectorController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        'apellido' => 'required',
+        'apellido' => 'required|unique:inspectors',
         'nombre' => 'required',
         'legajo' => 'integer|required',
       ]);
@@ -38,7 +38,7 @@ class InspectorController extends Controller
     public function update(Request $request, Inspector $inspector)
     {
       $this->validate($request, [
-        'apellido' => 'required',
+        'apellido' => 'required|unique:inspectors',
         'nombre' => 'required',
         'legajo' => 'integer|required',
       ]);
