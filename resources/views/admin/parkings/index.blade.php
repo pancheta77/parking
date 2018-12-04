@@ -28,7 +28,7 @@
                 @if ($estacionamientos->isNotEmpty())
                   <form method="POST" action="{{ route('admin.parkings.destroy') }}" style="display: inline">
                     {{ csrf_field() }} {{ method_field('DELETE') }}
-                    <button onclick="return confirm ('Esta a punto de borrar todos los estacionamientos. ¿Está seguro?')" class="btn btn-warning pull-left"><i class="fa fa-exclamation-triangle"></i> Finalizar horacio</button>
+                    <button onclick="return confirm ('Esta a punto de finalizar todos los estacionamientos. ¿Está seguro?')" class="btn btn-warning pull-left"><i class="fa fa-exclamation-triangle"></i> Finalizar horacio</button>
                   </form>
                 @endif
               </div>
@@ -75,7 +75,7 @@
                       <td>{{ $estacionamiento->estado }}</td>
                       <td>
                         @if ($estacionamiento->estado != 'Finalizado')
-                          <a href="{{ route('admin.parkings.finish', $estacionamiento) }}" onclick="return confirm ('¿Desea finalizar el estacionamiento?')" class="btn btn-danger btn.xs"><i class="fa fa-times"></i></a>
+                          <a href="{{ route('admin.parkings.finish', $estacionamiento) }}" onclick="return confirm ('¿Desea finalizar el estacionamiento?')" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></a>
                         @endif
                       </td>
                     </tr>

@@ -18,6 +18,7 @@ class CreateTarifasTable extends Migration
             $table->string('nombre');
             $table->integer('valor_base');
             $table->integer('tasa');
+            $table->enum('estado', ['Activa', 'Borrada']);
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateZonasTable extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->unsignedInteger('tarifaId');
+            $table->enum('estado', ['Activa', 'Borrada']);
             $table->timestamps();
         });
     }

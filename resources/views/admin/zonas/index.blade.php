@@ -36,6 +36,7 @@
                   <th>Descripción</th>
                   <th>Tarifa base</th>
                   <th>Tasa incremento [%]</th>
+                  <th>Estado</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -46,12 +47,17 @@
                       <td>{{ $zona->descripcion }}</td>
                       <td>{{ $zona->tarifa->valor_base }}</td>
                       <td>{{ $zona->tarifa->tasa }}</td>
+                      <td>{{ $zona->estado }}</td>
                       <td>
+                        @if ($zona->estado == 'Activa')
                           <a href="{{ route('admin.zonas.edit', $zona) }}" class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></a>
                           <form method="POST" action="{{ route('admin.zonas.destroy', $zona) }}" style="display: inline">
                             {{ csrf_field() }} {{ method_field('DELETE') }}
                             <button onclick="return confirm ('¿Esta seguro de borrar la zona?')" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
                           </form>
+                        @else
+                          <a href="{{ route('admin.zonas.reload', $zona) }}" class="btn btn-warning btn-xs"><i class="fa fa-play"></i></a>
+                        @endif
                       </td>
                     </tr>
                   @endforeach

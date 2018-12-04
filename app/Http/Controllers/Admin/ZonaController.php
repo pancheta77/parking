@@ -18,7 +18,7 @@ class ZonaController extends Controller
 
   public function create()
   {
-      $tarifas = Tarifa::all();
+      $tarifas = Tarifa::where('estado', 'Activa')->get();
       return view('admin.zonas.create', compact('tarifas'));
   }
 
@@ -54,7 +54,15 @@ class ZonaController extends Controller
 
   public function destroy(Zona $zona)
   {
-      $zona->delete();
-      return redirect()->route('admin.zonas.index')->with('flash', 'El inspector ha sido borrado correctamente');
+      // $zona->delete();
+      $zona->estado = 'Borrada';
+      $zona->save();
+      return redirect()->route('admin.zonas.index')->with('flash', 'La zona ha sido borrada correctamente');
+  }
+
+  public function reload(Zona $zona){
+    $zona->estado = 'Activa';
+    $zona->save();
+    return redirect()->route('admin.zonas.index')->with('flash', 'La zona ha sido reactivada correctamente');
   }
 }

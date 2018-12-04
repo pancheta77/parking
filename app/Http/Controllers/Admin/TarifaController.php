@@ -49,7 +49,16 @@ class TarifaController extends Controller
 
     public function destroy(Tarifa $tarifa)
     {
-        $tarifa->delete();
-        return redirect()->route('admin.tarifas.index')->with('flash', 'El inspector ha sido borrado correctamente');
+        // dd($tarifa);
+        // $tarifa->delete();
+        $tarifa->estado = 'Borrada';
+        $tarifa->save();
+        return redirect()->route('admin.tarifas.index')->with('flash', 'La tarifa ha sido borrada correctamente');
+    }
+
+    public function reload(Tarifa $tarifa){
+      $tarifa->estado = 'Activa';
+      $tarifa->save();
+      return redirect()->route('admin.tarifas.index')->with('flash', 'La tarifa ha sido reactivada correctamente');
     }
 }

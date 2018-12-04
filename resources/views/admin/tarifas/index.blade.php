@@ -37,6 +37,7 @@
                   <th>Nombre</th>
                   <th>Valor Base</th>
                   <th>Tasa de incremento</th>
+                  <th>Estado</th>
                   <th>Acciones</th>
                 </tr>
                 </thead>
@@ -46,12 +47,18 @@
                       <td>{{ $tarifa->nombre }}</td>
                       <td>{{ $tarifa->valor_base }}</td>
                       <td>{{ $tarifa->tasa }}</td>
+                      <td>{{ $tarifa->estado }}</td>
                       <td>
-                          <a href="{{ route('admin.tarifas.edit', $tarifa) }}" class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></a>
-                          <form method="POST" action="{{ route('admin.tarifas.destroy', $tarifa) }}" style="display: inline">
-                            {{ csrf_field() }} {{ method_field('DELETE') }}
-                            <button onclick="return confirm ('¿Esta seguro de borrar la tarifa?')" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
-                          </form>
+                          @if ($tarifa->estado == 'Activa')
+                            <a href="{{ route('admin.tarifas.edit', $tarifa) }}" class="btn btn-success btn-xs"><i class="fa fa-pencil"></i></a>
+                            <form method="POST" action="{{ route('admin.tarifas.destroy', $tarifa) }}" style="display: inline">
+                              {{ csrf_field() }} {{ method_field('DELETE') }}
+                              <button onclick="return confirm ('¿Esta seguro de borrar la tarifa?')" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button>
+                            </form>
+                          @else
+                            <a href="{{ route('admin.tarifas.reload', $tarifa) }}" class="btn btn-warning btn-xs"><i class="fa fa-play"></i></a>
+                          @endif
+
                       </td>
                     </tr>
                   @endforeach

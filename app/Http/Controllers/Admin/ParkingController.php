@@ -12,6 +12,7 @@ use App\User;
 use App\Movimiento;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade as PDF;
+use App\Rules\patente;
 
 class ParkingController extends Controller
 {
@@ -22,7 +23,7 @@ class ParkingController extends Controller
 
     public function create(){
       $users = User::all();
-      $zonas = Zona::all();
+      $zonas = Zona::where('estado', 'Activa')->get();
       $origenes = Origen::all();
       return view('admin.parkings.create', compact('users', 'zonas', 'origenes'));
     }
@@ -30,8 +31,8 @@ class ParkingController extends Controller
     public function store(Request $request){
       // dd($request);
       $this->validate($request, [
-        'dominio' => 'required|min:6|max:7',
-        'tiempo' => 'nullable|between:[1,13]',
+        'dominio' => [new patente],
+        'tiempo' => 'nullable|integer|between:[1,13]',
         'zonaId' => 'required',
         'userId' => 'required',
         'origenId' => 'required',

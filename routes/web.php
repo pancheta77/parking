@@ -43,6 +43,7 @@ Route::group([
 		Route::get('zonas/{zona}', 'ZonaController@edit')->name('admin.zonas.edit');
 		Route::put('zonas/{zona}', 'ZonaController@update')->name('admin.zonas.update');
 		Route::delete('zonas/{zona}', 'ZonaController@destroy')->name('admin.zonas.destroy');
+		Route::get('zonas/reload/{zona}', 'ZonaController@reload')->name('admin.zonas.reload');
 
 		//Rutas de administración - tarifas
 		Route::get('tarifas', 'TarifaController@index')->name('admin.tarifas.index');
@@ -51,6 +52,7 @@ Route::group([
 		Route::get('tarifas/{tarifa}', 'TarifaController@edit')->name('admin.tarifas.edit');
 		Route::put('tarifas/{tarifa}', 'TarifaController@update')->name('admin.tarifas.update');
 		Route::delete('tarifas/{tarifa}', 'TarifaController@destroy')->name('admin.tarifas.destroy');
+		Route::get('tarifas/reload/{tarifa}', 'TarifaController@reload')->name('admin.tarifas.reload');
 
 		//Rutas de administración - usuarios
 		Route::get('usuarios', 'UsuarioController@index')->name('admin.users.index');

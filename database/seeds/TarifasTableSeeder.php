@@ -17,18 +17,21 @@ class TarifasTableSeeder extends Seeder
         'nombre' => 'Simple',
         'valor_base' => 15,
         'tasa' => 0,
+        'estado' => 'Activa',
       ]);
 
       DB::table('tarifas')->insert([
         'nombre' => 'Progresiva 1',
         'valor_base' => 15,
         'tasa' => 10, //Tasa incremento por hora 10%
+        'estado' => 'Activa',
       ]);
 
       DB::table('tarifas')->insert([
         'nombre' => 'Progresiva 2',
         'valor_base' => 15,
         'tasa' => 20, //Tasa incremento por hora 20%
+        'estado' => 'Activa',
       ]);
     }
 }

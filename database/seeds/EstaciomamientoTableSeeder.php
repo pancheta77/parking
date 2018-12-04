@@ -16,7 +16,7 @@ class EstaciomamientoTableSeeder extends Seeder
 
       DB::table('estacionamientos')->insert([
         'horaDesde' => Carbon::now()->subHours(rand(1, 5)),
-        'horaHasta' => Carbon::now()->addHours(rand(1, 3)),
+        'horaHasta' => null,
         'vehiculoId' => 1,
         'zonaId' => rand(1, 3),
         'monto' => 0,
@@ -26,7 +26,7 @@ class EstaciomamientoTableSeeder extends Seeder
 
       DB::table('estacionamientos')->insert([
         'horaDesde' => Carbon::now()->subHours(rand(1, 5)),
-        'horaHasta' => Carbon::now()->addHours(rand(1, 3)),
+        'horaHasta' => null,
         'vehiculoId' => 2,
         'zonaId' => rand(1, 3),
         'monto' => 0,
@@ -36,7 +36,7 @@ class EstaciomamientoTableSeeder extends Seeder
 
       DB::table('estacionamientos')->insert([
         'horaDesde' => Carbon::now()->subHours(rand(1, 5)),
-        'horaHasta' => Carbon::now()->addHours(rand(1, 3)),
+        'horaHasta' => null,
         'vehiculoId' => 3,
         'zonaId' => rand(1, 3),
         'monto' => 0,
@@ -46,7 +46,7 @@ class EstaciomamientoTableSeeder extends Seeder
 
       DB::table('estacionamientos')->insert([
         'horaDesde' => Carbon::now()->subHours(rand(1, 5)),
-        'horaHasta' => Carbon::now()->addHours(rand(1, 3)),
+        'horaHasta' => null,
         'vehiculoId' => 4,
         'zonaId' => rand(1, 3),
         'monto' => 0,
@@ -56,7 +56,7 @@ class EstaciomamientoTableSeeder extends Seeder
 
       DB::table('estacionamientos')->insert([
         'horaDesde' => Carbon::now()->subHours(rand(1, 5)),
-        'horaHasta' => Carbon::now()->addHours(rand(1, 3)),
+        'horaHasta' => null,
         'vehiculoId' => 5,
         'zonaId' => rand(1, 3),
         'monto' => 0,
@@ -66,7 +66,7 @@ class EstaciomamientoTableSeeder extends Seeder
 
       DB::table('estacionamientos')->insert([
         'horaDesde' => Carbon::now()->subHours(rand(1, 5)),
-        'horaHasta' => Carbon::now()->addHours(rand(1, 3)),
+        'horaHasta' => null,
         'vehiculoId' => 6,
         'zonaId' => rand(1, 3),
         'monto' => 0,

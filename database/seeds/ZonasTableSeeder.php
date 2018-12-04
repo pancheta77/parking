@@ -17,18 +17,21 @@ class ZonasTableSeeder extends Seeder
         'nombre' => 'Centro 1',
         'descripcion' => 'Centro comercial calle 8',
         'tarifaId' => 1,
+        'estado' => 'Activa',
       ]);
 
       DB::table('zonas')->insert([
         'nombre' => 'Centro 2',
         'descripcion' => 'Centro comercial calle 12',
         'tarifaId' => 2,
+        'estado' => 'Activa',
       ]);
 
       DB::table('zonas')->insert([
         'nombre' => 'Tribunales',
         'descripcion' => 'Tribunales de La Plata',
         'tarifaId' => 3,
+        'estado' => 'Activa',
       ]);
     }
 }
