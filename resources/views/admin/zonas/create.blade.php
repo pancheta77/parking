@@ -28,17 +28,17 @@
                {{ csrf_field() }}
                <div class="card-body">
                 <div class="form-group {{ $errors->has('nombre') ? ' is-invalid' : '' }}">
-                  <label>Nombre de Zona</label>
+                  <label>Nombre de Zona <span class="text-danger">*</span></label>
                   <input name="nombre" value="{{ old('nombre') }}" class="form-control" placeholder="Ingrese el nombre de la zona">
                   {!! $errors->first('nombre', '<span class="text-danger">:message</span>') !!}
                 </div>
                 <div class="form-group {{ $errors->has('descripcion') ? ' is-invalid' : '' }}">
-                  <label>Descripción de Zona</label>
+                  <label>Descripción de Zona <span class="text-danger">*</span></label>
                   <input name="descripcion" value="{{ old('descripcion') }}" class="form-control" placeholder="Ingrese la descripción de la zona">
                   {!! $errors->first('descripcion', '<span class="text-danger">:message</span>') !!}
                 </div>
                 <div class="form-group {{ $errors->has('tarifaId') ? ' is-invalid' : '' }}">
-                  <label>Tarifa</label>
+                  <label>Tarifa <span class="text-danger">*</span></label>
                   <select name="tarifaId" class="form-control">
                     <option value="">Seleccione una tarifa</option>
                     </option>
@@ -48,7 +48,9 @@
                   </select>
                   {!! $errors->first('tarifaId', '<span class="text-danger">:message</span>') !!}
                 </div>
-
+                <div class="form-group">
+                  <label><span class="text-danger">(*) Obligatorio</span></label>
+                </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary pull-left">Guardar</button>
                 </div>

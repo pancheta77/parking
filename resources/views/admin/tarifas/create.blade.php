@@ -28,21 +28,23 @@
                {{ csrf_field() }}
                <div class="card-body">
                 <div class="form-group {{ $errors->has('nombre') ? ' is-invalid' : '' }}">
-                  <label>Nombre</label>
+                  <label>Nombre <span class="text-danger">*</span></label>
                   <input name="nombre" value="{{ old('nombre') }}" class="form-control" placeholder="Ingrese el nombre descriptivo">
                   {!! $errors->first('nombre', '<span class="text-danger">:message</span>') !!}
                 </div>
                 <div class="form-group {{ $errors->has('valor_base') ? ' is-invalid' : '' }}">
-                  <label>Valor base</label>
+                  <label>Valor base <span class="text-danger">*</span></label>
                   <input name="valor_base" value="{{ old('valor_base') }}" class="form-control" placeholder="Ingrese valor base de la tarifa ">
                   {!! $errors->first('valor_base', '<span class="text-danger">:message</span>') !!}
                 </div>
                 <div class="form-group {{ $errors->has('tasa') ? ' is-invalid' : '' }}">
-                  <label>Tasa de incremento</label>
+                  <label>Tasa de incremento <span class="text-danger">*</span></label>
                   <input name="tasa" value="{{ old('tasa') }}" class="form-control" placeholder="Ingrese tasa en porcentaje">
                   {!! $errors->first('tasa', '<span class="text-danger">:message</span>') !!}
                 </div>
-
+                <div class="form-group">
+                  <label><span class="text-danger">(*) Obligatorio</span></label>
+                </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary pull-left">Guardar</button>
                 </div>

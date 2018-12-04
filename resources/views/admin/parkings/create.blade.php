@@ -28,7 +28,7 @@
                {{ csrf_field() }}
                <div class="card-body">
                  <div class="form-group {{ $errors->has('origenId') ? ' is-invalid' : '' }}">
-                   <label>Origen</label>
+                   <label>Origen <span class="text-danger">*</span></label>
                    <select name="origenId" class="form-control">
                        <option value="">Seleccione un origen</option>
                      @foreach ($origenes as $origen)
@@ -38,7 +38,7 @@
                    {!! $errors->first('origenId', '<span class="text-danger">:message</span>') !!}
                  </div>
                  <div class="form-group {{ $errors->has('userId') ? ' is-invalid' : '' }}">
-                   <label>Usuario</label>
+                   <label>Usuario <span class="text-danger">*</span></label>
                    <select name="userId" class="form-control">
                      <option value="">Seleccione un Usuario</option>
                      </option>
@@ -49,7 +49,7 @@
                    {!! $errors->first('userId', '<span class="text-danger">:message</span>') !!}
                  </div>
                 <div class="form-group {{ $errors->has('dominio') ? ' is-invalid' : '' }}">
-                  <label>Dominio</label>
+                  <label>Dominio <span class="text-danger">*</span></label>
                   <input name="dominio" value="{{ old('dominio') }}" class="form-control" placeholder="Ingrese su patente">
                   {!! $errors->first('dominio', '<span class="text-danger">:message</span>') !!}
                 </div>
@@ -59,7 +59,7 @@
                   {!! $errors->first('tiempo', '<span class="text-danger">:message</span>') !!}
                 </div>
                 <div class="form-group {{ $errors->has('zonaId') ? ' is-invalid' : '' }}">
-                  <label>Zona</label>
+                  <label>Zona <span class="text-danger">*</span></label>
                   <select name="zonaId" class="form-control">
                     <option value="">Seleccione una zona</option>
                     </option>
@@ -68,6 +68,9 @@
                     @endforeach
                   </select>
                   {!! $errors->first('zonaId', '<span class="text-danger">:message</span>') !!}
+                </div>
+                <div class="form-group">
+                  <label><span class="text-danger">(*) Obligatorio</span></label>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary pull-left">Iniciar</button>
