@@ -32,7 +32,7 @@ class ParkingController extends Controller
       // dd($request);
       $this->validate($request, [
         'dominio' => [new patente],
-        'tiempo' => 'nullable|integer',
+        'tiempo' => 'nullable|integer|min:1|max:13',
         'zonaId' => 'required',
         'userId' => 'required',
         'origenId' => 'required',
