@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    image: 'devserver'
+    container_name: parkingserver
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./:/app
+    command: php artisan serve --host=0.0.0.0
+    links:
+      - 'db_mysql'
+
+  db_mysql:
+    image: 'mysql:5.7'
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ROOT_PASSWORD=pavesur
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
