@@ -43,7 +43,7 @@ class ZonaController extends Controller
   public function update(Request $request, Zona $zona)
   {
     $this->validate($request, [
-      'nombre' => 'required|unique:zonas',
+      'nombre' => 'required',
       'descripcion' => 'required',
       'tarifaId' => 'required',
     ]);
