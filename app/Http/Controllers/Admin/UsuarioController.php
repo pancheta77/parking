@@ -42,6 +42,6 @@ class UsuarioController extends Controller
 
   public function movimientos (User $usuario){
     $movimientos = Movimiento::where('cuentaId', $usuario->cuentaId)->orderBy('fechaOperacion')->get();
-    return view('admin.users.movimientos', compact('movimientos'));
+    return view('admin.users.movimientos', compact('movimientos', 'usuario'));
   }
 }

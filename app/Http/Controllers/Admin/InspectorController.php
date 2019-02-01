@@ -24,7 +24,7 @@ class InspectorController extends Controller
       $this->validate($request, [
         'apellido' => 'required|unique:inspectors',
         'nombre' => 'required',
-        'legajo' => 'integer|required',
+        'legajo' => 'integer|min:100|max:999999|required',
       ]);
       Inspector::create($request->all());
       return redirect()->route('admin.inspectores.index')->with('flash', 'El inspector ha sido guardado correctamente');
@@ -38,9 +38,9 @@ class InspectorController extends Controller
     public function update(Request $request, Inspector $inspector)
     {
       $this->validate($request, [
-        'apellido' => 'required|unique:inspectors',
+        'apellido' => 'required',
         'nombre' => 'required',
-        'legajo' => 'integer|required',
+        'legajo' => 'integer|min:100|max:999999|required',
       ]);
       $inspector->fill($request->all());
       $inspector->save();

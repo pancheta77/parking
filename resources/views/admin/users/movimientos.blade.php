@@ -20,6 +20,17 @@
   <div class="container-fluid">
    <div class="row">
      <div class="col-lg-12">
+        <div class="col-lg-6">
+        <div class="card card-primary card-outline">
+          <div class="card-body">
+            <h6 class="card-title">{{ $usuario->name }}</h6>
+
+            <p class="card-text">
+              Correo registrado: {{ $usuario->email }} | Celular: {{ $usuario->celular }}
+            </p>
+          </div>
+        </div>
+      </div>
        <div class="card card-primary card-outline">
          <div class="card-header">
          <div class="card-body">
