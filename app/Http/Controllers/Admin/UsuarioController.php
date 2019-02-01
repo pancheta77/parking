@@ -22,7 +22,7 @@ class UsuarioController extends Controller
 
   public function update(Request $request, User $usuario){
     $this->validate($request, [
-      'monto' => 'required|integer|min:1',
+      'monto' => 'required|integer|min:1|max:9999',
     ]);
 
     $usuario->cuenta->saldo = ($usuario->cuenta->saldo + $request->get('monto'));
