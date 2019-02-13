@@ -19,7 +19,7 @@ Route::group([
   'middleware' => 'auth'],
 	function(){
 		//Rutas de administración - estacionamiento
-    Route::get('/', 'AdminController@index')->name('dashboard');
+    	Route::get('/', 'AdminController@index')->name('dashboard');
 		Route::get('estacionamientos', 'ParkingController@index')->name('admin.parkings.index');
 		Route::get('estacionamientos/create', 'ParkingController@create')->name('admin.parkings.create');
 		Route::post('estacionamientos', 'ParkingController@store')->name('admin.parkings.store');

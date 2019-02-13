@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Zona;
+use App\Http\Requests\UpdateZonaRequest;
 use App\Tarifa;
+use App\Zona;
+use Illuminate\Http\Request;
 
 
 class ZonaController extends Controller
@@ -40,15 +41,10 @@ class ZonaController extends Controller
       return view('admin.zonas.edit', compact('zona', 'tarifas'));
   }
 
-  public function update(Request $request, Zona $zona)
+  public function update(UpdateZonaRequest $request, $id)
   {
-    $this->validate($request, [
-      'nombre' => 'required',
-      'descripcion' => 'required',
-      'tarifaId' => 'required',
-    ]);
-    $zona->fill($request->all());
-    $zona->save();
+    $zona = Zona::findOrFail($id);
+    $zona->update($request->all());
     return redirect()->route('admin.zonas.index')->with('flash', 'El zona ha sido actualizado correctamente');
   }
 

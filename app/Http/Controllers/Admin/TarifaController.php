@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateTarifaRequest;
 use App\Tarifa;
+use Illuminate\Http\Request;
 
 class TarifaController extends Controller
 {
@@ -35,15 +36,12 @@ class TarifaController extends Controller
         return view('admin.tarifas.edit', compact('tarifa'));
     }
 
-    public function update(Request $request, Tarifa $tarifa)
+    public function update(UpdateTarifaRequest $request, $id)
     {
-      $this->validate($request, [
-        'nombre' => 'required',
-        'valor_base' => 'integer|min:1|required',
-        'tasa' => 'required|integer|min:0',
-      ]);
-      $tarifa->fill($request->all());
-      $tarifa->save();
+      // dd($request);
+      $tarifa = Tarifa::findOrFail($id);
+      $tarifa->update($request->all());
+      // $tarifa->save();
       return redirect()->route('admin.tarifas.index')->with('flash', 'El tarifa ha sido actualizada correctamente');
     }
 
